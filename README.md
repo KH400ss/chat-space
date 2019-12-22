@@ -1,24 +1,71 @@
-# README
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, add_index unique true|
+|email|string|null: false, add_index unique true|
+|password|string|null: false, add_index unique true|
+|group_id|integer|null: false, foreign_key :true|
+|message_id|integer|null: false, foreign_key :true|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+- has_many :groups_users
+- has_many :users_messages
+- has_many :groups, through: :groups_users
+- has_many :messages, through: :users_messages
 
-Things you may want to cover:
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_name|string|null: false, add_index unique true|
+|user_id|integer|null: false, foreign_key :true|
+|message_id|integer|null: false, foreign_key :true|
 
-* Ruby version
+### Association
+- has_many :groups_users
+- has_many :messages_groups
+- has_many :users, through: :groups_users
+- has_many :messages, through: :messages_groups
 
-* System dependencies
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|add_index|
+|image|string|
+|group_id|integer|null: false, foreign_key :true|
+|user_id|integer|null: false, foreign_key :true|
 
-* Configuration
+### Association
+- has_many :users_messages
+- has_many :messages_groups
+- has_many :users, through: :users_messages
+- has_many :groups, through: :messages_groups
 
-* Database creation
+## groups_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :group
+- belongs_to :user
 
-* How to run the test suite
+## users_messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :message
+- belongs_to :user
 
-* Deployment instructions
+## messages_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign_key: true|
+|message_id|integer|null: false, foreign_key: true|
 
-* ...
+### Association
+- belongs_to :message
+- belongs_to :group
