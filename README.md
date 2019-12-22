@@ -4,8 +4,6 @@
 |name|string|null: false, index: true|
 |email|string|null: false, index: true|
 |password|string|null: false, index: true|
-|group_id|integer|null: false|
-|message_id|integer|null: false|
 
 ### Association
 - has_many :groups_users
@@ -16,8 +14,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|user_id|integer|null: false|
-|message_id|integer|null: false|
 
 ### Association
 - has_many :groups_users
