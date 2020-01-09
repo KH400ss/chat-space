@@ -1,0 +1,56 @@
+.SideBar{
+  width: 300px;
+  height: 100vh;
+  .UserName{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    .Display{
+      width: 260px;
+      height: 20px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      &__name{
+        font-size: 16px;
+        line-height: 20px;
+        color: $whiteColor;
+      }
+      &__icon{
+        line-height: 20px;
+        width: 60px;
+        text-align: right;
+        &__btn{
+          color: $whiteColor;
+          text-decoration: none;
+          &--edit{
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .GroupList{
+    background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    .Group{
+      padding-top: 20px;
+      padding-bottom: 40px;
+      &__name{
+        font-size: 15px;
+        width: 260px;
+        margin: 0 auto 5px;
+        color: $whiteColor;
+      }
+      &__latestMessage{
+        font-size: 11px;
+        width: 260px;
+        margin: 0 auto;
+        color: $whiteColor;
+      }
+    }
+  }
+}
+
+
