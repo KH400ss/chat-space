@@ -16,18 +16,20 @@
         margin-left: 40px;
       }
       &--edit{
-        height: 40px;
-        width: 72px;
-        border: 1px solid $main_blue_light;
-        display: block;
-        font-size: 16px;
-        color: $main_blue_light;
-        text-decoration: none;
-        line-height: 38px;
-        text-align: center;
-        margin-top: 28px;
-        margin-right: 40px;
-        padding: 0 20px;
+        &--btn{
+          height: 40px;
+          width: 72px;
+          border: 1px solid $main_blue_light;
+          display: block;
+          font-size: 16px;
+          color: $main_blue_light;
+          text-decoration: none;
+          line-height: 38px;
+          text-align: center;
+          margin-top: 28px;
+          margin-right: 40px;
+          padding: 0 20px;
+        }
       }
     }
     &__member{

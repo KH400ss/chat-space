@@ -3,8 +3,9 @@
     .GroupInfo__Group
       .GroupInfo__Group--name
         test
-      %a(href="#" class='GroupInfo__Group--edit' )
-        Edit
+      .GroupInfo__Group--edit
+        = link_to '#', class: "GroupInfo__Group--edit--btn" do
+          Edit
     .GroupInfo__member
       Member : masa
   .MessageList
