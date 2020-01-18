@@ -1,0 +1,18 @@
+.SideBar
+  .UserName
+    .Display
+      .Display__name
+        = current_user.name
+      .Display__icon
+        = link_to new_group_path, class: "Display__icon__btn" do
+          =icon('fa', 'edit', class: 'Display__icon__btn--edit')
+        = link_to edit_user_path(current_user), class: "Display__icon__btn" do
+          =icon('fa', 'cog', class: 'Display__icon__btn--cog')
+  .GroupList
+    - current_user.groups.each do |group|
+      .Group
+        =link_to '#' do
+          .Group__name
+            =group.name
+          .Group__latestMessage
+            まだメッセージがありません
