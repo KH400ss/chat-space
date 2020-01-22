@@ -37,17 +37,20 @@
     .Group{
       padding-top: 20px;
       padding-bottom: 40px;
-      &__name{
-        font-size: 15px;
-        width: 260px;
-        margin: 0 auto 5px;
-        color: $whiteColor;
-      }
-      &__latestMessage{
-        font-size: 11px;
-        width: 260px;
-        margin: 0 auto;
-        color: $whiteColor;
+      &__info{
+        text-decoration: none;
+        &--name{
+          font-size: 15px;
+          width: 260px;
+          margin: 0 auto 5px;
+          color: $whiteColor;
+        }
+        &--latestMessage{
+          font-size: 11px;
+          width: 260px;
+          margin: 0 auto;
+          color: $whiteColor;
+        }
       }
     }
   }

@@ -2,45 +2,24 @@
   .GroupInfo
     .GroupInfo__Group
       .GroupInfo__Group--name
-        test
+        = @group.name
       .GroupInfo__Group--edit
-        = link_to '#', class: "GroupInfo__Group--edit--btn" do
+        = link_to edit_group_path(@group), class: "GroupInfo__Group--edit--btn" do
           Edit
     .GroupInfo__member
-      Member : masa
+      Member : 
+      - @group.group_users.each do |m|
+        = m.user.name
+        
   .MessageList
-    .MessageInfo
-      .MessageInfo__name
-        masa
-      .MessageInfo__date
-        2019/11/20(wed) 17:43:01
-    .Message
-      おはよう！
-
-    .MessageInfo
-      .MessageInfo__name
-        masa
-      .MessageInfo__date
-        2019/12/20(wed) 17:43:01
-    .Message
-      こんにちは！
-
-    .MessageInfo
-      .MessageInfo__name
-        masa
-      .MessageInfo__date
-        2020/1/20(wed) 17:43:01
-    .Message
-      こんばんわ！
-
+    = render @messages
 
   .NewMessageForm
-    %form.Form
-      .Form__inputSpace
-        %input.Form__inputSpace--text{type: 'text', placeholder: 'type a message'}
-        %label.Form__inputSpace--image
-          = icon('fas', 'image')
-          %input.Form__inputSpace--image--file{type: "file"}
-      %input.Form__sendBtn{type: 'submit', value: 'Send'}
-
-      
+    = form_for [@group, @message] do |f|
+      .Form
+        .Form__inputSpace
+          = f.text_field :content, class: 'Form__inputSpace--text', placeholder: 'type a message'
+          = f.label :image, class: 'Form__inputSpace--image' do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'Form__inputSpace--image--file'
+        = f.submit 'send', class: 'Form__sendBtn'
